@@ -23,12 +23,10 @@
     <body>
         {{-- 生徒一覧 foreach--}}
 
-
         <form action="{{ route('student.create') }}" method="post">
-            <input type="text">
+            <input type="text" name="name">
             <input type="submit" name="送信">
-            {{-- 何部かチェックを入れる。編集可 --}}
-            {{-- ボタンを押したら部活でまとめられたページへ遷移 --}}
+            <input type="text" name="club_student">
         </form>
 
         {{-- 部活の追加 --}}
