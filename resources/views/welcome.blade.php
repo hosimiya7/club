@@ -58,7 +58,7 @@
                         未承認
                         <form method="POST" action="{{ route('club.approval') }}">
                             @csrf
-                            <input type="hidden" name="club_id" value="{{$club->id}}">
+                            <input type="hidden" name="club_id" value="{{ $club->id }}">
                             <input type="submit" value="承認する">
                         </form>
                     @elseif($club->approval === 2)
@@ -69,8 +69,13 @@
 
             {{-- $club->studentsを一つの配列とみて回す --}}
             @foreach ($club->students as $club_student)
-                <li style="list-style: none">{{ $club_student->name }}</li>
-
+                <li style="list-style: none; display: inline;">{{ $club_student->name }}</li>
+                <form action="{{ route('member.delete') }}" method="post" style="display: inline">
+                    @csrf
+                    <input type="hidden" name="student_id" value="{{ $club_student->id }}">
+                    <input type="hidden" name="club_id" value="{{ $club->id }}">
+                    <input type="submit" value="退部">
+                </form>
             @endforeach
 
         @endforeach

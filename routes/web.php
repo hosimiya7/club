@@ -22,8 +22,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/student/create', [StudentController::class, 'create'])->name('student.create');
 Route::get('/', [StudentController::class, 'show'])->name('student.show');
+Route::post('/student/create', [StudentController::class, 'create'])->name('student.create');
+Route::post('/member/delete', [MemberController::class, 'delete'])->name('member.delete');
 Route::post('/club/create', [ClubController::class, 'create'])->name('club.create');
 Route::post('/club/approval', [ClubController::class, 'approval'])->name('club.approval');
 Route::post('/member/create', [MemberController::class, 'create'])->name('member.create');
