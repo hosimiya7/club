@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ClubController;
+use App\Http\Controllers\MemberController;
+use App\Models\Member;
+use App\Models\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/member/create', 'memberController@Create')->name('member.create');
+Route::post('/student/create', [StudentController::class, 'create'])->name('student.create');
+Route::get('/', [StudentController::class, 'show'])->name('student.show');
+Route::post('/club/create', [ClubController::class, 'create'])->name('club.create');
+Route::post('/club/approval', [ClubController::class, 'approval'])->name('club.approval');
+Route::post('/member/create', [MemberController::class, 'create'])->name('member.create');
+
 
