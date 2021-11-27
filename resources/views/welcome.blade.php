@@ -52,16 +52,16 @@
 
             <li>{{ $club->name }}
                 <span>
-                    @if ($club->approval === 0)
+                    @if ($club->approval === App\Models\Club::INSUFFICIENT)
                         人数不足
-                    @elseif($club->approval === 1)
+                    @elseif($club->approval === App\Models\Club::UNAPPROVED)
                         未承認
                         <form method="POST" action="{{ route('club.approval') }}">
                             @csrf
                             <input type="hidden" name="club_id" value="{{ $club->id }}">
                             <input type="submit" value="承認する">
                         </form>
-                    @elseif($club->approval === 2)
+                    @elseif($club->approval === App\Models\Club::APPROVED)
                         承認済み
                     @endif
                 </span>

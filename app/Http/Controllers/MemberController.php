@@ -21,7 +21,7 @@ class MemberController extends Controller
         $clubs = Club::all();
         foreach ($clubs as $club) {
             if (count(Member::where('club_id', $club->id)->get()) >= 5) {
-                $club->approval = 1;
+                $club->approval = Club::UNAPPROVED;
                 $club->save();
             }
         };
@@ -38,7 +38,7 @@ class MemberController extends Controller
         // 上から呼び出せたらいいな
         $members = Member::where('club_id', $request->club_id)->get();
         if (count($members) < 5) {
-            $members[0]->club->approval = 0;
+            $members[0]->club->approval = Club::INSUFFICIENT;
             $members[0]->club->save();
         }
 
