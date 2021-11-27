@@ -15,7 +15,7 @@ class StudentController extends Controller
     public function create(Request $request)
     {
         $name = $request->name;
-        DB::table('students')->insert(['name' => $name]);
+        Student::insert(['name' => $name]);
         return redirect('/');;
     }
 

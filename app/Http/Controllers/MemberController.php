@@ -16,7 +16,7 @@ class MemberController extends Controller
         $student_id = $request->student;
         $club_id = $request->club;
         Log::debug($request);
-        DB::table('members')->insert(['student_id' => $student_id, 'club_id' => $club_id]);
+        Member::insert(['student_id' => $student_id, 'club_id' => $club_id]);
 
         $clubs = Club::all();
         foreach ($clubs as $club) {
