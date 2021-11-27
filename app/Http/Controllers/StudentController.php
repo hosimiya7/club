@@ -16,7 +16,7 @@ class StudentController extends Controller
     {
         $name = $request->name;
         Student::insert(['name' => $name]);
-        return redirect('/');;
+        return redirect('/');
     }
 
     public function show()
