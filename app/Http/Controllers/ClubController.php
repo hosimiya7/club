@@ -14,7 +14,7 @@ class ClubController extends Controller
     public function create(Request $request)
     {
         $name = $request->club;
-        DB::table('clubs')->insert(['name' => $name]);
+        Club::insert(['name' => $name]);
         return redirect('/');
     }
 

@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Student extends Model
 {
     use HasFactory;
-    protected $table = 'students';
     protected $guarded = [
 
     ];
