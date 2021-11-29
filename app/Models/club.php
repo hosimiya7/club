@@ -18,4 +18,21 @@ class Club extends Model
     {
         return $this->belongsToMany(Student::class, 'members');
     }
+
+    public function isMemberInsufficient()
+    {
+        // tureだったら
+        return $this->approval === self::INSUFFICIENT;
+    }
+
+    public function isUnApproved()
+    {
+        return $this->approval === self::UNAPPROVED;
+    }
+
+    public function isApproved()
+    {
+        return $this->approval === self::APPROVED;
+    }
+
 }

@@ -22,6 +22,7 @@ class StudentController extends Controller
     public function show()
     {
         $students = Student::all();
+        // $clubはcollectionオブジェクトになる
         $clubs = Club::all();
         return view('welcome', ['students' => $students, 'clubs' => $clubs]);
     }
